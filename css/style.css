@@ -67,6 +67,84 @@ footer span {
   color: #a9a9a9;
 }
 
+main {
+  background-color: #c9c9c9;
+  flex: auto;
+  display: flex;
+}
+
+.fondo {
+  flex: auto;
+  background-image: url(/img/fondoInicio.webp);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.contenedor--productos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.contenedor--productos .producto {
+  height: 50em;
+  width: 25em;
+  background: #101010;
+  text-align: center;
+  border-radius: 2em;
+  box-shadow: 0 0.3rem 5rem rgba(0, 0, 0, 0.5);
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.producto picture {
+  height: 70%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-top-right-radius: 2em;
+  border-top-left-radius: 2em;
+}
+.producto picture img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.producto--nombre {
+  color: #b9b9b9;
+  font-size: 1.5em;
+}
+
+.producto--precio {
+  color: #7c7c7c;
+  font-size: 1.8em;
+}
+.producto--boton {
+  display: block;
+  height: 3em;
+  width: 80%;
+  background-color: #ef3c34;
+  color: #c9c9c9;
+  font-family: "Rubik", sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  border-radius: 2em;
+  margin-bottom: 1em;
+}
+
+.producto--boton:hover {
+  background-color: #bc2f28;
+  color: #c9c9c9;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 700px) {
   nav {
     flex-direction: column;
@@ -85,6 +163,5 @@ footer span {
 
   footer span {
     font-size: 0.8em;
-    color: #a9a9a9;
   }
 }
