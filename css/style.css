@@ -80,6 +80,7 @@ main {
   background-position: center center;
   background-repeat: no-repeat;
 }
+
 .contenedor--productos {
   display: flex;
   justify-content: center;
@@ -252,6 +253,103 @@ main {
   margin: 2em;
 }
 
+.contenedor--inicio {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: justify;
+  align-items: center;
+}
+
+.inicio--recomendado {
+  height: 50em;
+  width: 25em;
+  background: #101010;
+  text-align: center;
+  border-radius: 2em;
+  box-shadow: 0 0.3rem 5rem rgba(0, 0, 0, 0.5);
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 1em black;
+}
+
+.inicio--recomendado picture {
+  height: 70%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-top-right-radius: 2em;
+  border-top-left-radius: 2em;
+}
+.inicio--recomendado picture img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.recomendado--nombre {
+  color: #b9b9b9;
+  font-size: 1.5em;
+}
+
+.recomendado--precio {
+  color: #7c7c7c;
+  font-size: 1.8em;
+}
+.recomendado--boton {
+  height: 3em;
+  width: 80%;
+  background-color: #ef3c34;
+  color: #c9c9c9;
+  font-family: "Rubik", sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  border-radius: 2em;
+  margin-bottom: 1em;
+  text-decoration: none;
+  padding-top: 0.8em;
+}
+
+.recomendado--boton:hover {
+  background-color: #bc2f28;
+  cursor: pointer;
+}
+
+.contenedor--recomendado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2em 0;
+}
+.contenedor--recomendado h2 {
+  font-size: 2em;
+  color: #c9c9c9;
+}
+
+.texto--inicio {
+  color: #c9c9c9;
+  font-size: 1.9em;
+  margin: 2em;
+}
+
+.articulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.articulo button {
+  padding-bottom: 1em;
+  width: 50%;
+}
 @media screen and (max-width: 700px) {
   nav {
     flex-direction: column;
