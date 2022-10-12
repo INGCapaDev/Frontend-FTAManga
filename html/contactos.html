@@ -31,7 +31,41 @@
     </nav>
 
     <main>
-      <section class="fondo"></section>
+      <section class="fondo">
+        <div class="contactos">
+          <div class="formulario">
+            <h3>Contactos</h3>
+            <form>
+              <div class="formulario--campo">
+                <label for="nombre">Nombre</label>
+                <input
+                  type="text"
+                  name="nombre"
+                  id="nombre"
+                  placeholder="Ingrese su nombre" />
+              </div>
+              <div class="formulario--campo">
+                <label for="correo">Correo</label>
+                <input
+                  type="text"
+                  name="correo"
+                  id="correo"
+                  placeholder="example@correo.com" />
+              </div>
+              <div class="formulario--campo">
+                <label for="comentarios">Comentarios</label>
+                <textarea
+                  id="comentarios"
+                  name="comentarios"
+                  rows="4"
+                  cols="20"
+                  placeholder="Deje aqui sus comentarios"></textarea>
+              </div>
+              <button class="formulario--boton" type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>

@@ -99,6 +99,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0px 0px 1em black;
 }
 
 .producto picture {
@@ -141,7 +142,82 @@ main {
 
 .producto--boton:hover {
   background-color: #bc2f28;
+  cursor: pointer;
+}
+
+.contactos {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.formulario {
+  background-color: #101010;
+  margin: 20px 0px;
+  width: auto;
+  min-height: 40em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: #c9c9c9;
+  border-radius: 1em;
+  box-shadow: 0px 0px 1em black;
+}
+.formulario h3 {
+  margin-top: 1em;
+  font-size: 3em;
+}
+
+.formulario--campo {
+  margin: 2em;
+  font-size: 2.5em;
+}
+
+.formulario--campo input {
+  background: none;
+  outline: none;
+  border-bottom: 2px solid #7c7c7c;
+  margin-left: 5.5em;
+  color: rgb(200, 200, 200);
+}
+
+.formulario--campo input:focus,
+.formulario--campo textarea:focus {
+  border-bottom: 2px solid #ef3c34;
+}
+
+.formulario--campo textarea {
+  margin-left: 3em;
+  background: none;
+  outline: none;
+  border-bottom: 2px solid #7c7c7c;
+  color: rgb(200, 200, 200);
+}
+
+.formulario--campo input:hover,
+.formulario--campo textarea:hover {
+  border-bottom: 2px solid #ef3c34;
+}
+
+.formulario--boton {
+  height: 3em;
+  width: 20%;
+  background-color: #ef3c34;
+  color: #c9c9c9;
+  font-family: "Rubik", sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  border-radius: 2em;
+  margin-bottom: 2em;
+  margin-left: 3em;
+}
+
+.formulario--boton:hover {
+  background-color: #bc2f28;
   cursor: pointer;
 }
 
@@ -163,5 +239,13 @@ main {
 
   footer span {
     font-size: 0.8em;
+  }
+
+  .formulario--campo textarea {
+    margin-left: 0em;
+  }
+
+  .formulario--campo input {
+    margin-left: 0em;
   }
 }
