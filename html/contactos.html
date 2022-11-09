@@ -24,7 +24,7 @@
     </header>
 
     <nav>
-      <a href="/index.html"> Inicio </a>
+      <a href="/html/inicio.html"> Inicio </a>
       <a href="/html/empresa.html">Empresa</a>
       <a href="/html/productos.html">Productos</a>
       <a href="/html/contactos.html" style="color: #e9e9e9">Contactos</a>
@@ -42,15 +42,20 @@
                   type="text"
                   name="nombre"
                   id="nombre"
-                  placeholder="Ingrese su nombre" />
+                  autocomplete="off"
+                  placeholder="Ingrese su nombre"
+                  required />
               </div>
               <div class="formulario--campo">
                 <label for="correo">Correo</label>
                 <input
-                  type="text"
+                  type="email"
                   name="correo"
                   id="correo"
-                  placeholder="example@correo.com" />
+                  pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                  placeholder="example@correo.com"
+                  autocomplete="off"
+                  required />
               </div>
               <div class="formulario--campo">
                 <label for="comentarios">Comentarios</label>

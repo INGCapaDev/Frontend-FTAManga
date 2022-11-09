@@ -103,6 +103,10 @@ main {
   box-shadow: 0px 0px 1em black;
 }
 
+.contenedor--productos .acceso {
+  width: 40em;
+  height: 35em;
+}
 .producto picture {
   height: 70%;
   width: 100%;
@@ -128,8 +132,13 @@ main {
   color: #7c7c7c;
   font-size: 1.8em;
 }
+
+.producto--descripcion {
+  color: #b9b9b9;
+  font-size: 1.2em;
+}
 .producto--boton {
-  display: block;
+  display: flex;
   height: 3em;
   width: 80%;
   background-color: #ef3c34;
@@ -139,6 +148,9 @@ main {
   font-weight: 600;
   border-radius: 2em;
   margin-bottom: 1em;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 
 .producto--boton:hover {
@@ -157,7 +169,7 @@ main {
 
 .formulario {
   background-color: #101010;
-  margin: 20px 0px;
+  margin: 2em;
   width: auto;
   min-height: 40em;
   display: flex;
@@ -174,7 +186,7 @@ main {
 }
 
 .formulario--campo {
-  margin: 2em;
+  margin: 1em;
   font-size: 2.5em;
 }
 
@@ -182,7 +194,7 @@ main {
   background: none;
   outline: none;
   border-bottom: 2px solid #7c7c7c;
-  margin-left: 5.5em;
+  margin-left: 2em;
   color: rgb(200, 200, 200);
 }
 
@@ -350,6 +362,18 @@ main {
   padding-bottom: 1em;
   width: 50%;
 }
+
+.contenedor--administrador {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* --------------------------- MEDIA QUERY --------------------------- */
+
 @media screen and (max-width: 700px) {
   nav {
     flex-direction: column;

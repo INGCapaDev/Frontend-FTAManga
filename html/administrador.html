@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap"
+      rel="stylesheet" />
+    <link rel="icon" href="/img/icono.png" />
+
+    <title>FTAManga</title>
+  </head>
+  <body>
+    <header>
+      <picture>
+        <img src="/img/FTAManga.PNG" alt="Logo FTAManga" />
+      </picture>
+    </header>
+
+    <main>
+      <section class="fondo">
+        <div class="contenedor--administrador">
+          <div class="formulario">
+            <h3>Administrador</h3>
+            <div class="formulario--campo">
+              <label for="codigo">Codigo</label>
+              <input
+                type="text"
+                name="codigo"
+                id="codigo"
+                autocomplete="off"
+                placeholder="Codigo del producto" />
+            </div>
+            <div class="formulario--campo">
+              <label for="nombre">Nombre</label>
+              <input
+                type="text"
+                name="nombre"
+                id="nombre"
+                autocomplete="off"
+                placeholder="Nombre del producto" />
+            </div>
+            <div class="formulario--campo">
+              <label for="editorial">Editorial</label>
+              <input
+                type="text"
+                name="editorial"
+                id="editorial"
+                autocomplete="off"
+                placeholder="Editorial del manga" />
+            </div>
+            <div class="formulario--campo">
+              <label for="fecha">Año de publicacion</label>
+              <input
+                type="number"
+                name="fecha"
+                id="fecha"
+                min="1900"
+                max="2025"
+                placeholder="Año" />
+              <label for="precio">Precio</label>
+              <input
+                type="number"
+                name="precio"
+                id="precio"
+                min="0"
+                max="999999"
+                placeholder="Precio" />
+            </div>
+            <div class="formulario--campo">
+              <label for="archivo">Imagen</label>
+              <input
+                type="file"
+                name="archivo"
+                id="archivo"
+                accept=".png .jpeg .jpg" />
+            </div>
+            <div class="formulario--campo">
+              <label for="">Nombre imagen</label>
+              <input
+                type="text"
+                id="imgNombre"
+                name="imgNombre"
+                readonly="true" />
+            </div>
+            <div class="formulario--campo">
+              <label for="">URL</label>
+              <input
+                type="text"
+                name="url"
+                id="url"
+                size="50"
+                readonly="true" />
+            </div>
+          </div>
+
+          <div class="formulario">
+            <h3>Imagen</h3>
+            <div class="formulario--campo">
+              <img
+                height="200em"
+                width="150em"
+                id="imagen"
+                src="/img/defaultImage.jpg"
+                alt="Imagen Producto" />
+            </div>
+          </div>
+          <div class="formulario">
+            <section class="formualario" id="lista" name="lista">
+              <div class="formulario--campo">
+                fffffffffffffffffffffffffffffffffffffffffffffffffffffff
+              </div>
+              <div class="formulario--campo">ff</div>
+              <div class="formulario--campo">ff</div>
+              <div class="formulario--campo">ff</div>
+              <div class="formulario--campo">ff</div>
+              <div class="formulario--campo">ff</div>
+              <div class="formulario--campo">ff</div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>
+        © 2022, FTAManga. Alvaro Capaceta, Todos los derechos reservados.
+      </span>
+    </footer>
+  </body>
+</html>
