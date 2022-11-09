@@ -79,7 +79,7 @@
                 type="file"
                 name="archivo"
                 id="archivo"
-                accept=".png .jpeg .jpg" />
+                accept=".png, .jpeg, .jpg" />
             </div>
             <div class="formulario--campo">
               <label for="">Nombre imagen</label>
@@ -111,19 +111,18 @@
                 alt="Imagen Producto" />
             </div>
           </div>
-          <div class="formulario">
-            <section class="formualario" id="lista" name="lista">
-              <div class="formulario--campo">
-                fffffffffffffffffffffffffffffffffffffffffffffffffffffff
-              </div>
-              <div class="formulario--campo">ff</div>
-              <div class="formulario--campo">ff</div>
-              <div class="formulario--campo">ff</div>
-              <div class="formulario--campo">ff</div>
-              <div class="formulario--campo">ff</div>
-              <div class="formulario--campo">ff</div>
-            </section>
+
+          <div class="contenedor--eventos">
+            <button id="btnAgregar">Agregar</button>
+            <button id="btnConsultar">Consultar</button>
+            <button id="btnActualizar">Actualizar</button>
+            <button id="btnDesactivar">Desactivar</button>
+            <button id="btnLimpiar">Limpiar</button>
           </div>
+
+          <section class="lista--productos" id="lista" name="lista">
+            <h3>Lista de productos</h3>
+          </section>
         </div>
       </section>
     </main>
@@ -134,4 +133,5 @@
       </span>
     </footer>
   </body>
+  <script src="/js/configuration.js" type="module"></script>
 </html>

@@ -36,11 +36,11 @@ const db = getDatabase();
 const btnAgregar = document.getElementById("btnAgregar");
 const btnConsultar = document.getElementById("btnConsultar");
 const btnActualizar = document.getElementById("btnActualizar");
-const btnBorrar = document.getElementById("btnBorrar");
-const btnTodos = document.getElementById("btnTodos");
+const btnDesactivar = document.getElementById("btnDesactivar");
 const btnLimpiar = document.getElementById("btnLimpiar");
-const btnVerImagen = document.getElementById("verImagen");
 const archivos = document.getElementById("archivo");
+const defaultIMG =
+  "https://firebasestorage.googleapis.com/v0/b/ftamanga-d6767.appspot.com/o/imagenes%2FdefaultImage.jpg?alt=media&token=de1aa06e-c4d0-4f4d-947b-5045d863fd07";
 
 //Insertar variables inputs
 var codigo = "";
@@ -57,86 +57,164 @@ function leerInputs() {
   editorial = document.getElementById("editorial").value;
   precio = document.getElementById("precio").value;
   fecha = document.getElementById("fecha").value;
-  archivo = document.getElementById("archivo");
+  archivo = document.getElementById("imgNombre");
   url = document.getElementById("url").value;
 }
 
 function insertarDatos() {
   leerInputs();
-  set(ref(db, "productos/" + codigo), {
-    nombre: nombre,
-    editorial: editorial,
-    precio: precio,
-    fecha: fecha,
-    imagen: url,
-    status: 0,
-  })
-    .then((res) => {
-      alert("Se Inserto con exito");
-      mostrarProductos();
-    })
-    .catch((error) => {
-      alert("Surgio un error " + error);
-    });
+  const dbref = ref(db);
+
+  if (codigo && nombre && editorial && precio && fecha && url != 0) {
+    get(child(dbref, "productos/" + codigo))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          alert("Ya existe un registro con ese codigo ");
+        } else {
+          set(ref(db, "productos/" + codigo), {
+            nombre: nombre,
+            editorial: editorial,
+            precio: precio,
+            fecha: fecha,
+            imagen: url,
+            status: 0,
+          })
+            .then((res) => {
+              alert("Se Inserto con exito");
+              mostrarProductos();
+            })
+            .catch((error) => {
+              alert("Surgio un error " + error);
+            });
+        }
+      })
+      .catch((error) => {
+        alert("Surgio un error " + error);
+      });
+  } else if (codigo && nombre && editorial && precio && fecha != 0) {
+    get(child(dbref, "productos/" + codigo))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          alert("Ya existe un registro con ese codigo ");
+        } else {
+          set(ref(db, "productos/" + codigo), {
+            nombre: nombre,
+            editorial: editorial,
+            precio: precio,
+            fecha: fecha,
+            imagen: defaultIMG,
+            status: 0,
+          })
+            .then((res) => {
+              alert("Se Inserto con exito");
+              mostrarProductos();
+            })
+            .catch((error) => {
+              alert("Surgio un error " + error);
+            });
+        }
+      })
+      .catch((error) => {
+        alert("Surgio un error " + error);
+      });
+  } else {
+    alert("Todos los campos son necesarios...");
+  }
 }
 
 function mostrarDatos() {
   leerInputs();
   const dbref = ref(db);
-  get(child(dbref, "productos/" + codigo))
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        nombre = snapshot.val().nombre;
-        editorial = snapshot.val().editorial;
-        precio = snapshot.val().precio;
-        fecha = snapshot.val().fecha;
-        imagen = snapshot.val().imagen;
-        escribirInputs();
-      } else {
-        alert("No se encontro el registro ");
-      }
-    })
-    .catch((error) => {
-      alert("Surgio un error " + error);
-    });
+  if (codigo != 0) {
+    get(child(dbref, "productos/" + codigo))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          nombre = snapshot.val().nombre;
+          editorial = snapshot.val().editorial;
+          precio = snapshot.val().precio;
+          fecha = snapshot.val().fecha;
+          url = snapshot.val().imagen;
+          escribirInputs();
+        } else {
+          alert("No se encontro el registro ");
+        }
+      })
+      .catch((error) => {
+        alert("Surgio un error " + error);
+      });
+  } else {
+    alert("Se necesita el codigo del producto...");
+  }
 }
 
 function actualizar() {
   leerInputs();
-  update(ref(db, "productos/" + codigo), {
-    nombre: nombre,
-    editorial: editorial,
-    precio: precio,
-    fecha: fecha,
-    imagen: url,
-    status: 0,
-  })
-    .then(() => {
-      alert("Se realizo actualizacion");
-      mostrarProductos();
-    })
-    .catch(() => {
-      alert("Causo Error " + error);
-    });
+  const dbref = ref(db);
+
+  if (codigo && nombre && editorial && precio && fecha && url != 0) {
+    get(child(dbref, "productos/" + codigo))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          update(ref(db, "productos/" + codigo), {
+            nombre: nombre,
+            editorial: editorial,
+            precio: precio,
+            fecha: fecha,
+            imagen: url,
+            status: 0,
+          })
+            .then(() => {
+              alert("Se realizo actualizacion");
+              mostrarProductos();
+            })
+            .catch(() => {
+              alert("Causo Error " + error);
+            });
+        } else {
+          alert("No se encontro el registro ");
+        }
+      })
+      .catch((error) => {
+        alert("Surgio un error " + error);
+      });
+  } else {
+    alert("Todos los campos son necesarios...");
+  }
 }
 
 function desabilitar() {
   leerInputs();
-  update(ref(db, "productos/" + codigo), {
-    status: 1,
-  })
-    .then(() => {
-      alert("Se realizo actualizacion");
-      mostrarProductos();
-    })
-    .catch(() => {
-      alert("Causo Error " + error);
-    });
+  const dbref = ref(db);
+
+  if (codigo != 0) {
+    get(child(dbref, "productos/" + codigo))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          update(ref(db, "productos/" + codigo), {
+            status: 1,
+          })
+            .then(() => {
+              alert("Se realizo actualizacion");
+              mostrarProductos();
+            })
+            .catch(() => {
+              alert("Causo Error " + error);
+            });
+        } else {
+          alert("No se encontro el registro ");
+        }
+      })
+      .catch((error) => {
+        alert("Surgio un error " + error);
+      });
+  } else {
+    alert("Se necesita el codigo del producto...");
+  }
 }
 
 function mostrarProductos() {
   const db = getDatabase();
-  const dbRef = ref(db, "alumnos");
+  const dbRef = ref(db, "productos");
 
   onValue(
     dbRef,
@@ -146,23 +224,38 @@ function mostrarProductos() {
         const childKey = childSnapshot.key;
         const childData = childSnapshot.val();
 
-        lista.innerHTML =
-          "<div class='formulario--campo'>" +
-          lista.innerHTML +
-          childKey +
-          " | " +
-          childData.nombre +
-          " | " +
-          childData.editorial +
-          " | " +
-          childData.precio +
-          " | " +
-          childData.fecha +
-          " | " +
-          childData.imagen +
-          " | " +
-          childData.status +
-          "<br></div>";
+        if (childData.status === 0) {
+          lista.innerHTML =
+            "<div class='prolista'>" +
+            lista.innerHTML +
+            childKey +
+            " | " +
+            childData.nombre +
+            " | " +
+            childData.editorial +
+            " | " +
+            childData.precio +
+            " | " +
+            childData.fecha +
+            " | Activo " +
+            "<br></div>";
+        } else {
+          lista.innerHTML =
+            "<div class='prolista'>" +
+            lista.innerHTML +
+            childKey +
+            " | " +
+            childData.nombre +
+            " | " +
+            childData.editorial +
+            " | " +
+            childData.precio +
+            " | " +
+            childData.fecha +
+            " | Inactivo " +
+            "<br></div>";
+        }
+
         console.log(childKey + ":");
         console.log(childData.nombre);
       });
@@ -174,7 +267,6 @@ function mostrarProductos() {
 }
 
 function limpiar() {
-  lista.innerHTML = "";
   codigo = "";
   nombre = "";
   editorial = "";
@@ -191,7 +283,7 @@ function escribirInputs() {
   document.getElementById("editorial").value = editorial;
   document.getElementById("precio").value = precio;
   document.getElementById("fecha").value = fecha;
-  document.getElementById("archivo").value = archivo;
+  document.getElementById("imgNombre").value = archivo;
   document.getElementById("url").value = url;
 }
 
@@ -204,15 +296,46 @@ function cargarImagen() {
   const storageRef = refS(storage, "imagenes/" + name);
   uploadBytes(storageRef, file).then((snapshot) => {
     alert("Se cargo la imagen");
+    descargarImagen();
   });
 }
 
-//btnAgregar.addEventListener('click', leerInputs);
+function descargarImagen() {
+  archivo = document.getElementById("imgNombre").value;
+
+  const storage = getStorage();
+  const starstRef = refS(storage, "imagenes/" + archivo);
+
+  getDownloadURL(starstRef)
+    .then((url) => {
+      console.log(url);
+
+      document.getElementById("imagen").src = url;
+      document.getElementById("url").value = url;
+    })
+    .catch((error) => {
+      switch (error.code) {
+        case "storage/object-not-found":
+          console.log("No se encontro la imagen");
+          break;
+        case "storage/unauthorized":
+          console.log("NO Tiene permisos para accesar imagen");
+          break;
+        case "storage/canceled":
+          console.log("se cancelo la subida");
+          break;
+        // ...
+        case "storage/unknown":
+          // Unknown error occurred, inspect the server response
+          break;
+      }
+    });
+}
+
+mostrarProductos();
 btnAgregar.addEventListener("click", insertarDatos);
 btnConsultar.addEventListener("click", mostrarDatos);
 btnActualizar.addEventListener("click", actualizar);
-btnBorrar.addEventListener("click", borrar);
-btnTodos.addEventListener("click", mostrarAlumnos);
+btnDesactivar.addEventListener("click", desabilitar);
 btnLimpiar.addEventListener("click", limpiar);
 archivos.addEventListener("change", cargarImagen);
-btnVerImagen.addEventListener("click", descargarImagen);
