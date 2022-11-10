@@ -54,6 +54,6 @@ async function autentificar(event) {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      window.location.href = "#";
+      alert("Error Email o Password Incorrectos");
     });
 }
