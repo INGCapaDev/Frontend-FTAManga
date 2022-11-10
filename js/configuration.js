@@ -37,6 +37,7 @@ const btnAgregar = document.getElementById("btnAgregar");
 const btnConsultar = document.getElementById("btnConsultar");
 const btnActualizar = document.getElementById("btnActualizar");
 const btnDesactivar = document.getElementById("btnDesactivar");
+const btnActivar = document.getElementById("btnActivar");
 const btnLimpiar = document.getElementById("btnLimpiar");
 const archivos = document.getElementById("archivo");
 const defaultIMG =
@@ -212,6 +213,36 @@ function desabilitar() {
   }
 }
 
+function habilitar() {
+  leerInputs();
+  const dbref = ref(db);
+
+  if (codigo != 0) {
+    get(child(dbref, "productos/" + codigo))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          update(ref(db, "productos/" + codigo), {
+            status: 0,
+          })
+            .then(() => {
+              alert("Se realizo actualizacion");
+              mostrarProductos();
+            })
+            .catch(() => {
+              alert("Causo Error " + error);
+            });
+        } else {
+          alert("No se encontro el registro ");
+        }
+      })
+      .catch((error) => {
+        alert("Surgio un error " + error);
+      });
+  } else {
+    alert("Se necesita el codigo del producto...");
+  }
+}
+
 function mostrarProductos() {
   const db = getDatabase();
   const dbRef = ref(db, "productos");
@@ -274,7 +305,9 @@ function limpiar() {
   fecha = "";
   url = "";
   archivo = "";
+  archivos.value = null;
   escribirInputs();
+  document.getElementById("imagen").src = defaultIMG;
 }
 
 function escribirInputs() {
@@ -285,6 +318,7 @@ function escribirInputs() {
   document.getElementById("fecha").value = fecha;
   document.getElementById("imgNombre").value = archivo;
   document.getElementById("url").value = url;
+  document.getElementById("imagen").src = url;
 }
 
 function cargarImagen() {
@@ -337,5 +371,6 @@ btnAgregar.addEventListener("click", insertarDatos);
 btnConsultar.addEventListener("click", mostrarDatos);
 btnActualizar.addEventListener("click", actualizar);
 btnDesactivar.addEventListener("click", desabilitar);
+btnActivar.addEventListener("click", habilitar);
 btnLimpiar.addEventListener("click", limpiar);
 archivos.addEventListener("change", cargarImagen);
