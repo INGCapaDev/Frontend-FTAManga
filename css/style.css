@@ -402,6 +402,9 @@ main {
   flex-wrap: wrap;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
 /* --------------------------- MEDIA QUERY --------------------------- */
 
 @media screen and (max-width: 700px) {
