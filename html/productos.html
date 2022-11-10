@@ -32,19 +32,18 @@
 
     <main>
       <section class="fondo">
-        <div class="contenedor--productos">
-          <div class="producto">
-            <picture>
-              <img src="/img/tokyoRevengers8.jpg" alt="Tokyo Revengers 8" />
-            </picture>
-            <h3 class="producto--nombre">Tokyo Revengers #8</h3>
-            <span class="producto--precio">$135.00 MXN</span>
-            <span class="producto--descripcion"
-              >Editorial: Panini <br />
-              Publicacion: 2022
-            </span>
-            <button class="producto--boton">Comprar</button>
-          </div>
+        <div class="contenedor--productos" id="contenedor--productos">
+          <template id="templateProduct">
+            <div class="producto">
+              <picture>
+                <img />
+              </picture>
+              <h3 class="producto--nombre"></h3>
+              <span class="producto--precio"></span>
+              <span class="producto--descripcion"></span>
+              <button class="producto--boton">Comprar</button>
+            </div>
+          </template>
         </div>
       </section>
     </main>
@@ -55,4 +54,5 @@
       </span>
     </footer>
   </body>
+  <script src="/js/productos.js" type="module"></script>
 </html>
