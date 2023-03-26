@@ -316,7 +316,6 @@ function escribirInputs() {
   document.getElementById('editorial').value = editorial;
   document.getElementById('precio').value = precio;
   document.getElementById('fecha').value = fecha;
-  document.getElementById('imgNombre').value = archivo;
   document.getElementById('url').value = url;
   document.getElementById('imagen').src = url;
 }
@@ -366,7 +365,6 @@ async function descargarImagen() {
     });
 }
 
-mostrarProductos();
 btnAgregar.addEventListener('click', insertarDatos);
 btnConsultar.addEventListener('click', mostrarDatos);
 btnActualizar.addEventListener('click', actualizar);
