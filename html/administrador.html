@@ -133,13 +133,6 @@
             <div class="form-group">
               <label>Año</label>
               <input id="year-add" type="number" step='1' class="form-control" onkeydown='filtro()' min="1900" max="2030" required>
-              <script>
-                function filtro() {
-                  var tecla = event.key;
-                  if (['.', 'e'].includes(tecla))
-                    event.preventDefault()
-                }
-              </script>
             </div>
             <p class="text-primary"><small id="alert-add" hidden></small></p>
           </div>
@@ -189,13 +182,6 @@
             <div class="form-group">
               <label>Año</label>
               <input id="year-edit" type="number" step='1' class="form-control" onkeydown='filtro()' min="1900" max="2030" required>
-              <script>
-                function filtro() {
-                  var tecla = event.key;
-                  if (['.', 'e'].includes(tecla))
-                    event.preventDefault()
-                }
-              </script>
             </div>
             <p class="text-warning"><small id="alert-update" hidden></small></p>
           </div>
@@ -250,10 +236,10 @@
           <div class="modal-body">
             <div class="form-group">
               <label>ID</label>
-              <input id='form-search-id' type="text" class="form-control" required>
+              <input id='form-search-id' type="number" onkeydown='filtro()' class="form-control" min='0' required>
             </div>
             <p>Ingresa el ID del producto</p>
-            <p class="text-warning"><small id="alert-search" hidden></small></p>
+            <p class="text-danger"><small id="alert-search" hidden></small></p>
           </div>
           <div class="modal-footer">
             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
@@ -265,7 +251,12 @@
   </div>
 </body>
 
-</body>
-
+<script>
+  function filtro() {
+    var tecla = event.key;
+    if (['.', 'e'].includes(tecla))
+      event.preventDefault()
+  }
+</script>
 
 </html>
