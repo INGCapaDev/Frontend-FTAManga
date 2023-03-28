@@ -92,8 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
   agregarForm.onsubmit = async (event) => {
     event.preventDefault();
     const newProduct = obtenerDatosAgregar();
-    console.log(newProduct);
+    const alert = document.getElementById('alert-add');
+
     try {
+      alert.hidden = false;
+      alert.innerHTML = 'Subiendo a la base de datos...';
       await axios.post(baseUrl, newProduct);
       window.location.reload();
     } catch (error) {
