@@ -58,5 +58,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const obtenerDatosAgregar = () => {
+    const name = document.getElementById('nombre-add').value;
+    const price = document.getElementById('precio-add').value;
+    const editorial = document.getElementById('editorial-add').value;
+    const year = document.getElementById('year-add').value;
+
+    const inputFile = document.getElementById('imagen-add');
+    if (inputFile.files && inputFile.files[0]) {
+      const img = inputFile.files[0];
+
+      var formData = new FormData();
+      formData.append('img', img);
+      formData.append('name', name);
+      formData.append('price', price);
+      formData.append('editorial', editorial);
+      formData.append('year', year);
+
+      return formData;
+    }
+
+    const newProduct = {
+      name,
+      price,
+      editorial,
+      year,
+    };
+
+    return newProduct;
+  };
+
+  const agregarForm = document.getElementById('addForm');
+  agregarForm.onsubmit = async (event) => {
+    event.preventDefault();
+    const newProduct = obtenerDatosAgregar();
+    console.log(newProduct);
+    try {
+      await axios.post(baseUrl, newProduct);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const limpiarCampos = () => {
+    document.getElementById('nombre-edit').value = '';
+    document.getElementById('precio-edit').value = '';
+    document.getElementById('editorial-edit').value = '';
+    document.getElementById('year-edit').value = '';
+  };
+
+  const btnLimpiar = document.getElementById('limpiar-campos');
+  btnLimpiar.addEventListener('click', limpiarCampos);
+
   productRender();
 });
