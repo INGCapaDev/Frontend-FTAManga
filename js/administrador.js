@@ -200,5 +200,56 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('form-search-id').value = '';
   });
 
+  const obtenerDatosEditar = () => {
+    const id = document.getElementById('form-edit-id').value;
+    const name = document.getElementById('nombre-edit').value;
+    const price = document.getElementById('precio-edit').value;
+    const editorial = document.getElementById('editorial-edit').value;
+    const year = document.getElementById('year-edit').value;
+
+    const inputFile = document.getElementById('imagen-edit');
+    if (inputFile.files && inputFile.files[0]) {
+      const img = inputFile.files[0];
+
+      var formData = new FormData();
+      formData.append('id', id);
+      formData.append('img', img);
+      formData.append('name', name);
+      formData.append('price', price);
+      formData.append('editorial', editorial);
+      formData.append('year', year);
+
+      return formData;
+    }
+
+    const newProduct = {
+      id,
+      name,
+      price,
+      editorial,
+      year,
+    };
+
+    return newProduct;
+  };
+
+  const editarForm = document.getElementById('editForm');
+  editarForm.onsubmit = async (event) => {
+    event.preventDefault();
+    const newData = obtenerDatosEditar();
+    const id = document.getElementById('form-edit-id').value;
+    const url = `${baseUrl}${id}`;
+    const alert = document.getElementById('alert-update');
+
+    try {
+      alert.hidden = false;
+      alert.innerHTML = 'Subiendo a la base de datos...';
+      await axios.put(url, newData);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   productRender();
 });
