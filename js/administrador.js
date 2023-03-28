@@ -111,5 +111,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnLimpiar = document.getElementById('limpiar-campos');
   btnLimpiar.addEventListener('click', limpiarCampos);
 
+  const obtenerDatosEliminar = () => {
+    return document.getElementById('form-delete-id').value;
+  };
+
+  const eliminarForm = document.getElementById('deleteForm');
+  eliminarForm.onsubmit = async (event) => {
+    event.preventDefault();
+    const id = obtenerDatosEliminar();
+    const url = `${baseUrl}${id}`;
+
+    try {
+      await axios.delete(url);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   productRender();
 });
