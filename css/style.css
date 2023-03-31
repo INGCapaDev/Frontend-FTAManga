@@ -431,44 +431,6 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-table {
-  margin: 1rem auto;
-  padding: 1rem;
-  background-color: #111111;
-  border-radius: 1rem;
-  table-layout: fixed;
-  width: 90%;
-  border-collapse: collapse;
-}
-
-thead th:nth-child(1) {
-  width: 10%;
-}
-
-thead th:nth-child(2) {
-  width: 40%;
-}
-
-thead th:nth-child(3) {
-  width: 10%;
-}
-
-thead th:nth-child(4) {
-  width: 20%;
-}
-
-thead th:nth-child(5) {
-  width: 20%;
-}
-
-th,
-td {
-  text-align: center;
-  padding: 1rem;
-  font-size: 1rem;
-  color: #c9c9c9;
-}
-
 /* --------------------------- MEDIA QUERY --------------------------- */
 
 @media screen and (max-width: 700px) {
