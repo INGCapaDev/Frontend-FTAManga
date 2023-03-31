@@ -43,7 +43,7 @@ nav {
 
 nav a {
   color: #a9a9a9;
-  font-size: 2.2em;
+  font-size: 1.5rem;
   text-decoration: none;
   padding: 5px 30px;
   align-items: center;
@@ -57,13 +57,13 @@ nav a:hover {
 
 footer {
   background-color: #222222;
-  padding: 1em;
+  padding: 1rem;
   text-align: center;
   margin-top: auto;
 }
 
 footer span {
-  font-size: 1.2em;
+  font-size: 0.8rem;
   color: #a9a9a9;
 }
 
@@ -89,8 +89,8 @@ main {
 }
 
 .contenedor--productos .producto {
-  height: 50em;
-  width: 25em;
+  height: 30rem;
+  width: 15rem;
   background: #101010;
   text-align: center;
   border-radius: 2em;
@@ -104,8 +104,8 @@ main {
 }
 
 .contenedor--productos .acceso {
-  width: 40em;
-  height: 35em;
+  width: 40rem;
+  height: 35rem;
 }
 .producto picture {
   height: 70%;
@@ -114,8 +114,8 @@ main {
   display: flex;
   justify-content: center;
   align-content: center;
-  border-top-right-radius: 2em;
-  border-top-left-radius: 2em;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
 }
 .producto picture img {
   height: 100%;
@@ -125,29 +125,29 @@ main {
 
 .producto--nombre {
   color: #b9b9b9;
-  font-size: 1.5em;
+  font-size: 1rem;
 }
 
 .producto--precio {
   color: #7c7c7c;
-  font-size: 1.8em;
+  font-size: 1.2rem;
 }
 
 .producto--descripcion {
   color: #b9b9b9;
-  font-size: 1.2em;
+  font-size: 0.8rem;
 }
 .producto--boton {
   display: flex;
-  height: 3em;
+  height: 2.8rem;
   width: 80%;
   background-color: #ef3c34;
   color: #c9c9c9;
   font-family: 'Rubik', sans-serif;
-  font-size: 1.5em;
+  font-size: 1rem;
   font-weight: 600;
-  border-radius: 2em;
-  margin-bottom: 1em;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
   justify-content: center;
   align-items: center;
   text-decoration: none;
@@ -169,30 +169,30 @@ main {
 
 .formulario {
   background-color: #101010;
-  margin: 2em;
+  margin: 2rem;
   width: auto;
-  min-height: 40em;
+  min-height: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #c9c9c9;
-  border-radius: 1em;
-  box-shadow: 0px 0px 1em black;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 1rem black;
 }
 
 .lista--productos {
   background-color: #101010;
-  margin: 2em;
+  margin: 2rem;
   width: 100%;
-  padding: 1em;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #c9c9c9;
-  border-radius: 1em;
+  border-radius: 1rem;
   box-shadow: 0px 0px 1em black;
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 .products-table {
@@ -216,20 +216,20 @@ th {
 }
 
 .formulario h3 {
-  margin-top: 1em;
-  font-size: 3em;
+  margin-top: 1rem;
+  font-size: 2rem;
 }
 
 .formulario--campo {
-  margin: 1em;
-  font-size: 2.5em;
+  margin: 1rem;
+  font-size: 1.5rem;
 }
 
 .formulario--campo input {
   background: none;
   outline: none;
   border-bottom: 2px solid #7c7c7c;
-  margin-left: 2em;
+  margin-left: 2rem;
   color: rgb(200, 200, 200);
 }
 
@@ -239,7 +239,7 @@ th {
 }
 
 .formulario--campo textarea {
-  margin-left: 3em;
+  margin-left: 3rem;
   background: none;
   outline: none;
   border-bottom: 2px solid #7c7c7c;
@@ -252,16 +252,16 @@ th {
 }
 
 .formulario--boton {
-  height: 3em;
+  height: 3rem;
   width: 20%;
   background-color: #ef3c34;
   color: #c9c9c9;
   font-family: 'Rubik', sans-serif;
-  font-size: 1.5em;
+  font-size: 1rem;
   font-weight: 600;
-  border-radius: 2em;
-  margin-bottom: 2em;
-  margin-left: 3em;
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 3rem;
 }
 
 .formulario--boton:hover {
@@ -270,15 +270,15 @@ th {
 }
 
 .contenedor--eventos button {
-  width: 10em;
-  height: 3em;
+  width: 10rem;
+  height: 3rem;
   background-color: #ef3c34;
   color: #c9c9c9;
   font-family: 'Rubik', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: 600;
-  border-radius: 2em;
-  margin: 1em;
+  border-radius: 2rem;
+  margin: 1rem;
 }
 
 .contenedor--eventos button:hover {
@@ -301,7 +301,7 @@ th {
   margin: 20px 0px;
   overflow: hidden;
   border-radius: 100%;
-  box-shadow: 0px 0px 1em black;
+  box-shadow: 0px 0px 1rem black;
 }
 
 .contenedor--empresa picture img {
@@ -312,8 +312,8 @@ th {
 
 .texto--empresa {
   color: #c9c9c9;
-  font-size: 1.9em;
-  margin: 2em;
+  font-size: 1.2rem;
+  margin: 2rem;
 }
 
 .contenedor--inicio {
@@ -327,18 +327,18 @@ th {
 }
 
 .inicio--recomendado {
-  height: 50em;
-  width: 25em;
+  height: 30rem;
+  width: 15rem;
   background: #101010;
   text-align: center;
-  border-radius: 2em;
+  border-radius: 1rem;
   box-shadow: 0 0.3rem 5rem rgba(0, 0, 0, 0.5);
   margin: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0px 0px 1em black;
+  box-shadow: 0px 0px 1rem black;
 }
 
 .inicio--recomendado picture {
@@ -348,8 +348,8 @@ th {
   display: flex;
   justify-content: center;
   align-content: center;
-  border-top-right-radius: 2em;
-  border-top-left-radius: 2em;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
 }
 .inicio--recomendado picture img {
   height: 100%;
@@ -359,25 +359,25 @@ th {
 
 .recomendado--nombre {
   color: #b9b9b9;
-  font-size: 1.5em;
+  font-size: 1rem;
 }
 
 .recomendado--precio {
   color: #7c7c7c;
-  font-size: 1.8em;
+  font-size: 1.2rem;
 }
 .recomendado--boton {
-  height: 3em;
+  height: 3rem;
   width: 80%;
   background-color: #ef3c34;
   color: #c9c9c9;
   font-family: 'Rubik', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.2rem;
   font-weight: 600;
-  border-radius: 2em;
-  margin-bottom: 1em;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
   text-decoration: none;
-  padding-top: 0.8em;
+  padding-top: 0.8rem;
 }
 
 .recomendado--boton:hover {
@@ -390,17 +390,17 @@ th {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2em 0;
+  margin: 2rem 0;
 }
 .contenedor--recomendado h2 {
-  font-size: 2em;
+  font-size: 1.5rem;
   color: #c9c9c9;
 }
 
 .texto--inicio {
   color: #c9c9c9;
-  font-size: 1.9em;
-  margin: 2em;
+  font-size: 1.3rem;
+  margin: 2rem;
 }
 
 .articulo {
@@ -410,7 +410,7 @@ th {
 }
 
 .articulo button {
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
   width: 50%;
 }
 
@@ -439,7 +439,7 @@ body::-webkit-scrollbar {
   }
 
   nav a {
-    font-size: 1.5em;
+    font-size: 1.2rem;
     margin: 3px 0px;
   }
 
@@ -449,7 +449,7 @@ body::-webkit-scrollbar {
   }
 
   footer span {
-    font-size: 0.8em;
+    font-size: 0.7rem;
   }
 
   .formulario--campo textarea {
