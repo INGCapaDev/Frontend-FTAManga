@@ -1,73 +1,53 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+document.addEventListener('DOMContentLoaded', () => {
+  const baseUrl = 'http://localhost:3001/api/products/';
 
-import {
-  getDatabase,
-  onValue,
-  ref,
-} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+  const mostrarTodos = async () => {
+    return await axios.get(baseUrl);
+  };
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyC75xXa9hKaJOFsFt1k76lt-4ac8SqDcKc",
-  authDomain: "ftamanga-d6767.firebaseapp.com",
-  projectId: "ftamanga-d6767",
-  storageBucket: "ftamanga-d6767.appspot.com",
-  messagingSenderId: "250816955229",
-  appId: "1:250816955229:web:e9843c64808962c2da5eb4",
-};
+  async function mostrarProductos() {
+    const contenedorProductos = document.getElementById(
+      'contenedor--productos'
+    );
+    const templateProduct = document.getElementById('templateProduct');
+    const fragment = document.createDocumentFragment();
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getDatabase();
-const contenedorProductos = document.getElementById("contenedor--productos");
-const templateProduct = document.getElementById("templateProduct");
+    try {
+      const response = await mostrarTodos();
 
-function cardProducts(nombre, precio, editorial, fecha, url) {
-  let template = templateProduct.content.cloneNode(true);
-  let imagenProducto = template.querySelector("img");
-  let nombreProducto = template.querySelector("h3");
-  let precioProducto = template.querySelector("span.producto--precio");
-  let descripcion = template.querySelector("span.producto--descripcion");
+      for (const data of response.data.data) {
+        const clone = templateProduct.content.cloneNode(true);
 
-  imagenProducto.src = url;
-  nombreProducto.innerHTML = nombre;
-  precioProducto.innerHTML = "$" + parseFloat(precio).toFixed(2) + " MXN";
-  descripcion.innerHTML =
-    "Editorial: " + editorial + "<br/>" + "Publicacion: " + fecha;
+        const price = data.price.toFixed(2);
 
-  contenedorProductos.appendChild(template);
-}
-
-async function mostrarProductos() {
-  const dbRef = ref(db, "productos");
-
-  await onValue(
-    dbRef,
-    (snapshot) => {
-      contenedorProductos.innerHTML = "";
-      snapshot.forEach((childSnapshot) => {
-        const childKey = childSnapshot.key;
-        const childData = childSnapshot.val();
-
-        if (childData.status === 0) {
-          cardProducts(
-            childData.nombre,
-            childData.precio,
-            childData.editorial,
-            childData.fecha,
-            childData.imagen
-          );
+        if (data.img) {
+          clone.querySelector('img').src = data.img;
+        }
+        if (!data.img) {
+          clone.querySelector('img').src =
+            'https://res.cloudinary.com/dghcswbuw/image/upload/v1680234812/ftamanga/ok0wepcs3tipmstgtvx1.jpg';
         }
 
-        console.log(childKey + ":");
-        console.log(childData.nombre);
-      });
-    },
-    {
-      onlyOnce: true,
-    }
-  );
-}
+        clone.querySelector('h3').textContent = data.name;
+        clone.querySelector(
+          'span.producto--precio'
+        ).textContent = `$ ${price} MXN`;
+        clone.querySelector(
+          'span.editorial'
+        ).textContent = `Editorial: ${data.editorial}`;
+        clone.querySelector(
+          'span.year'
+        ).textContent = `Publicacion: ${data.year}`;
 
-mostrarProductos();
+        fragment.appendChild(clone);
+      }
+
+      contenedorProductos.innerHTML = '';
+      contenedorProductos.appendChild(fragment);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  mostrarProductos();
+});

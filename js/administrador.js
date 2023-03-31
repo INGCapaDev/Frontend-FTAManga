@@ -21,12 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
         clone.querySelector('#name').textContent = data.name;
         clone.querySelector('#price').textContent = `$ ${price}`;
         clone.querySelector('#editorial').textContent = data.editorial;
-        if (data.img != null) {
+        if (data.img) {
           clone.querySelector('#img').src = data.img;
         }
-        if (data.img == null) {
-          clone.querySelector('#img').src = '/img/defaultImage.jpg';
+        if (!data.img) {
+          clone.querySelector('#img').src =
+            'https://res.cloudinary.com/dghcswbuw/image/upload/v1680234812/ftamanga/ok0wepcs3tipmstgtvx1.jpg';
         }
+
         clone.querySelector('#year').textContent = data.year;
 
         clone.querySelector('.edit').addEventListener('click', () => {
