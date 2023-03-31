@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const baseUrl = 'http://localhost:3001/api/products/';
+  const baseUrl = 'http://web-api.live/api/products';
 
   const mostrarTodos = async () => {
     return await axios.get(baseUrl);

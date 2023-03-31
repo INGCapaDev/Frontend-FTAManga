@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const baseUrl = 'http://localhost:3001/api/products/';
+  const baseUrl = 'http://web-api.live/api/products';
 
   const mostrarTodos = async () => {
     return await axios.get(baseUrl);
@@ -40,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#img-edit').src = data.img;
           }
           if (data.img == null) {
-            document.querySelector('#img-edit').src = '/img/defaultImage.jpg';
+            document.querySelector('#img-edit').src =
+              'https://res.cloudinary.com/dghcswbuw/image/upload/v1680234812/ftamanga/ok0wepcs3tipmstgtvx1.jpg';
           }
           document.querySelector('#year-edit').value = data.year;
           $('#editEmployeeModal').modal();
@@ -162,7 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
         clone.querySelector('#img').src = data.img;
       }
       if (data.img == null) {
-        clone.querySelector('#img').src = '/img/defaultImage.jpg';
+        clone.querySelector('#img').src =
+          'https://res.cloudinary.com/dghcswbuw/image/upload/v1680234812/ftamanga/ok0wepcs3tipmstgtvx1.jpg';
       }
       clone.querySelector('#year').textContent = data.year;
 
@@ -175,7 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
           document.querySelector('#img-edit').src = data.img;
         }
         if (data.img == null) {
-          document.querySelector('#img-edit').src = '/img/defaultImage.jpg';
+          document.querySelector('#img-edit').src =
+            'https://res.cloudinary.com/dghcswbuw/image/upload/v1680234812/ftamanga/ok0wepcs3tipmstgtvx1.jpg';
         }
         document.querySelector('#year-edit').value = data.year;
         $('#editEmployeeModal').modal();
