@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'https://res.cloudinary.com/dghcswbuw/image/upload/v1680234812/ftamanga/ok0wepcs3tipmstgtvx1.jpg';
         }
 
+        clone.querySelector('.producto--boton').dataset.id = data.id;
         clone.querySelector('h3').textContent = data.name;
         clone.querySelector(
           'span.producto--precio'

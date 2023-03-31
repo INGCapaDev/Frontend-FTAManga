@@ -1,83 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap"
-      rel="stylesheet" />
-    <link rel="icon" href="/img/icono.png" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>FTAManga</title>
-  </head>
-  <body>
-    <header>
-      <picture>
-        <img src="/img/FTAManga.PNG" alt="Logo FTAManga" />
-      </picture>
-    </header>
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/img/icono.png" />
 
-    <nav>
-      <a href="/html/inicio.html"> Inicio </a>
-      <a href="/html/empresa.html">Empresa</a>
-      <a href="/html/productos.html">Productos</a>
-      <a href="/html/contactos.html" style="color: #e9e9e9">Contactos</a>
-    </nav>
+  <title>FTAManga</title>
+</head>
 
-    <main>
-      <section class="fondo">
-        <div class="contactos">
-          <div class="formulario">
-            <h3>Contactos</h3>
-            <form>
-              <div class="formulario--campo">
-                <label for="nombre">Nombre</label>
-                <input
-                  type="text"
-                  name="nombre"
-                  id="nombre"
-                  autocomplete="off"
-                  placeholder="Ingrese su nombre"
-                  required />
-              </div>
-              <div class="formulario--campo">
-                <label for="correo">Correo</label>
-                <input
-                  type="email"
-                  name="correo"
-                  id="correo"
-                  pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
-                  placeholder="example@correo.com"
-                  autocomplete="off"
-                  required />
-              </div>
-              <div class="formulario--campo">
-                <label for="comentarios">Comentarios</label>
-                <textarea
-                  id="comentarios"
-                  name="comentarios"
-                  rows="4"
-                  cols="20"
-                  placeholder="Deje aqui sus comentarios"></textarea>
-              </div>
-              <button class="formulario--boton" type="submit">Enviar</button>
-              <button class="formulario--boton" type="reset">Limpiar</button>
-            </form>
-          </div>
+<body>
+  <header>
+    <picture>
+      <img src="/img/FTAManga.PNG" alt="Logo FTAManga" />
+    </picture>
+  </header>
+
+  <nav>
+    <a href="/html/inicio.html"> Inicio </a>
+    <a href="/html/empresa.html">Empresa</a>
+    <a href="/html/productos.html">Productos</a>
+    <a href="/html/contactos.html" style="color: #e9e9e9">Contactos</a>
+  </nav>
+
+  <main>
+    <section class="fondo">
+      <div class="contactos">
+        <div class="formulario">
+          <h3>Contactos</h3>
+          <form>
+            <div class="formulario--campo">
+              <label for="nombre">Nombre</label>
+              <input type="text" name="nombre" id="nombre" autocomplete="off" placeholder="Ingrese su nombre" required />
+            </div>
+            <div class="formulario--campo">
+              <label for="correo">Correo</label>
+              <input type="email" name="correo" id="correo" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" placeholder="example@correo.com" autocomplete="off" required />
+            </div>
+            <div class="formulario--campo">
+              <label for="comentarios">Comentarios</label>
+              <textarea id="comentarios" name="comentarios" rows="4" cols="20" placeholder="Deje aqui sus comentarios"></textarea>
+            </div>
+            <button class="formulario--boton" type="submit">Enviar</button>
+            <button class="formulario--boton" type="reset">Limpiar</button>
+          </form>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      <span>
-        © 2022, FTAManga. Alvaro Capaceta, Todos los derechos reservados.
-      </span>
-    </footer>
-  </body>
+  <footer>
+    <span>
+      © 2022, FTAManga. Alvaro Capaceta, Todos los derechos reservados.
+    </span>
+  </footer>
+</body>
+
 </html>

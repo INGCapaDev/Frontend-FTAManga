@@ -47,12 +47,12 @@ nav a {
   text-decoration: none;
   padding: 5px 30px;
   align-items: center;
-  margin: 14px 0px;
+  margin: 0.8rem 0px;
 }
 
 nav a:hover {
   border-bottom: 2px solid #a9a9a9;
-  margin: 12px 0px;
+  margin: 0.7rem 0px;
 }
 
 footer {
@@ -104,8 +104,8 @@ main {
 }
 
 .contenedor--productos .acceso {
-  width: 40rem;
-  height: 35rem;
+  width: 25rem;
+  height: 20rem;
 }
 .producto picture {
   height: 70%;
@@ -430,6 +430,45 @@ th {
 body::-webkit-scrollbar {
   display: none;
 }
+
+table {
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #111111;
+  border-radius: 1rem;
+  table-layout: fixed;
+  width: 90%;
+  border-collapse: collapse;
+}
+
+thead th:nth-child(1) {
+  width: 10%;
+}
+
+thead th:nth-child(2) {
+  width: 40%;
+}
+
+thead th:nth-child(3) {
+  width: 10%;
+}
+
+thead th:nth-child(4) {
+  width: 20%;
+}
+
+thead th:nth-child(5) {
+  width: 20%;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #c9c9c9;
+}
+
 /* --------------------------- MEDIA QUERY --------------------------- */
 
 @media screen and (max-width: 700px) {
