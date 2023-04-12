@@ -1,59 +1,73 @@
-const btnLimpiar = document.getElementById("btnLimpiar");
-const email = document.getElementById("correo");
-const pass = document.getElementById("pass");
+const btnLimpiar = document.getElementById('btnLimpiar');
+const email = document.getElementById('correo');
+const pass = document.getElementById('pass');
 
 const limpiar = () => {
-  pass.value = "";
-  correo.value = "";
+  pass.value = '';
+  correo.value = '';
 };
 
-btnLimpiar.addEventListener("click", limpiar);
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-import {
-  signInWithEmailAndPassword,
-  getAuth,
-} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyC75xXa9hKaJOFsFt1k76lt-4ac8SqDcKc",
-  authDomain: "ftamanga-d6767.firebaseapp.com",
-  databaseURL: "https://ftamanga-d6767-default-rtdb.firebaseio.com",
-  projectId: "ftamanga-d6767",
-  storageBucket: "ftamanga-d6767.appspot.com",
-  messagingSenderId: "250816955229",
-  appId: "1:250816955229:web:e9843c64808962c2da5eb4",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+btnLimpiar.addEventListener('click', limpiar);
 
 window.onload = inicializar;
-var formAutentificacion;
+
+// const baseUrl = '/api/api/products/';
+const baseUrl = 'http://localhost:3000/api/auth/';
 
 function inicializar() {
-  formAutentificacion = document.getElementById("form--autentificacion");
-  formAutentificacion.addEventListener("submit", autentificar);
+  const formAutentificacion = document.getElementById('form--autentificacion');
+  formAutentificacion.addEventListener('submit', autentificar);
 }
 
 async function autentificar(event) {
   event.preventDefault();
 
-  const email = event.target.correo.value;
+  const user = event.target.user.value;
   const password = event.target.pass.value;
+  const url = `${baseUrl}login`;
 
+  const loginInfo = {
+    user,
+    password,
+  };
+
+  try {
+    const dataAuth = await axios.post(url, loginInfo);
+    const token = dataAuth.data.data.token;
+    const userData = dataAuth.data.data.user;
+    window.sessionStorage.setItem('user', JSON.stringify(userData));
+    window.sessionStorage.setItem('token', JSON.stringify(token));
+
+    if (userData.role === 'Admin') {
+      window.alert('Bienvenido al administrador');
+      window.location.href = '/html/administrador.html';
+      return;
+    }
+    window.alert('Usuario no autorizado');
+  } catch (error) {
+    console.log(error);
+    if (error.response.status === 404 || error.response.status === 401) {
+      window.alert(error.response.data.error);
+    }
+    if (error.response.data.errors) {
+      error.response.data.errors.forEach((error) => {
+        console.log(`Error: ${error.msg} Param: ${error.param}`);
+      });
+    }
+  }
+
+  /*
   const auth = await getAuth();
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      alert("Bienvenido al administrador");
-      window.location.href = "/html/administrador.html";
+      alert('Bienvenido al administrador');
+      window.location.href = '/html/administrador.html';
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert("Error Email o Password Incorrectos");
+      alert('Error Email o Password Incorrectos');
     });
+    */
 }
