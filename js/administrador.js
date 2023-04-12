@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // const baseUrl = '/api/api/products/';
   const baseUrl = 'http://localhost:3000/api/products/';
 
+  if (sessionStorage.getItem('token')) {
+    const TOKEN = JSON.parse(sessionStorage.getItem('token'));
+    axios.defaults.headers.common['Authorization'] = `Bearer ${TOKEN}`;
+  }
+
   const mostrarTodos = async () => {
     return await axios.get(baseUrl);
   };
@@ -102,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert.hidden = false;
       alert.innerHTML = 'Subiendo a la base de datos...';
       await axios.post(baseUrl, newProduct);
+
       window.location.reload();
     } catch (error) {
       alert.hidden = true;
