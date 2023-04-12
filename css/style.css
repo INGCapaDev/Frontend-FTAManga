@@ -53,6 +53,8 @@ nav a {
 nav a:hover {
   border-bottom: 2px solid #a9a9a9;
   margin: 0.7rem 0px;
+  text-decoration: none;
+  color: #a9a9a9;
 }
 
 footer {
