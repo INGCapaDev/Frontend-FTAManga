@@ -104,6 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
       await axios.post(baseUrl, newProduct);
       window.location.reload();
     } catch (error) {
+      alert.hidden = true;
+      if (error.response.status === 401) {
+        window.alert('Usuario NO Autorizado');
+        window.location.href = '/index.html';
+        return;
+      }
+      window.alert(error.response.data.error);
       console.log(error);
     }
   };
@@ -132,6 +139,12 @@ document.addEventListener('DOMContentLoaded', () => {
       await axios.delete(url);
       window.location.reload();
     } catch (error) {
+      if (error.response.status === 401) {
+        window.alert('Usuario NO Autorizado');
+        window.location.href = '/index.html';
+        return;
+      }
+      window.alert(error.response.data.error);
       console.log(error);
     }
   };
@@ -253,6 +266,13 @@ document.addEventListener('DOMContentLoaded', () => {
       await axios.put(url, newData);
       window.location.reload();
     } catch (error) {
+      alert.hidden = true;
+      if (error.response.status === 401) {
+        window.alert('Usuario NO Autorizado');
+        window.location.href = '/index.html';
+        return;
+      }
+      window.alert(error.response.data.error);
       console.log(error);
     }
   };
