@@ -85,7 +85,7 @@
               </div>
               <div class="col-md-6 mb-3">
                 <label for="cc-number">Numero de tarjeta</label>
-                <input type="number" class="form-control bg-dark" min='1' max="999" style="color: whitesmoke" id="cc-number" placeholder="" required>
+                <input type="number" class="form-control bg-dark" min='1' onkeydown="filtro()" style="color: whitesmoke" id="cc-number" placeholder="" required>
                 <div class="invalid-feedback">
                   Numero de tarjeta es requerido
                 </div>
@@ -101,7 +101,7 @@
               </div>
               <div class="col-md-3 mb-3">
                 <label for="cc-cvv">CVV</label>
-                <input type="number" class="form-control bg-dark" style="color: whitesmoke" id="cc-cvv" placeholder="" required>
+                <input type="number" class="form-control bg-dark" style="color: whitesmoke" id="cc-cvv" max="999" placeholder="" required>
                 <div class="invalid-feedback">
                   Codigo de seguridad es requerido
                 </div>
@@ -123,5 +123,14 @@
       © 2022, FTAManga. Alvaro Capaceta, Todos los derechos reservados.
     </span>
   </footer>
+
+</body>
+<script>
+  function filtro() {
+    var tecla = event.key;
+    if (['.', 'e', '-', '+'].includes(tecla))
+      event.preventDefault()
+  }
+</script>
 
 </html>
