@@ -43,16 +43,16 @@
             <span class="text-muted">Carrito</span>
             <span class="badge badge-secondary badge-pill" id="carrito-cantidad"></span>
           </h4>
-          <ul class="list-group mb-3">
-            <template>
-              <li class="list-group-item d-flex justify-content-between lh-condensed bg-dark">
+          <ul class="list-group mb-3" id="productsContainer" style="color: whitesmoke">
+            <template id="productTemplate">
+              <li class="list-group-item d-flex justify-content-between lh-condensed bg-dark" style="color: whitesmoke">
                 <div>
                   <h6 class="my-0" id="product-name"></h6>
                 </div>
                 <span class="text-muted" id="product-price"></span>
               </li>
             </template>
-            <li class="list-group-item d-flex justify-content-between bg-dark">
+            <li class="list-group-item d-flex justify-content-between bg-dark" id="total-li" style="color: whitesmoke">
               <span>Total (MXN)</span>
               <strong id="total-mxn"></strong>
             </li>
