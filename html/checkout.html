@@ -12,13 +12,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/admin.css">
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="../js/checkout.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
   <link rel="icon" href="/img/icono.png" />
@@ -32,8 +33,86 @@
       <img src="/img/FTAManga.PNG" alt="Logo FTAManga" />
     </picture>
   </header>
-  <main class="fondo">
-    <div class="container-xl">
+  <main style="color: whitesmoke; background-color: #101010;">
+
+    <div class=" container mt-5 mb-5">
+
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Carrito</span>
+            <span class="badge badge-secondary badge-pill" id="carrito-cantidad"></span>
+          </h4>
+          <ul class="list-group mb-3">
+            <template>
+              <li class="list-group-item d-flex justify-content-between lh-condensed bg-dark">
+                <div>
+                  <h6 class="my-0" id="product-name"></h6>
+                </div>
+                <span class="text-muted" id="product-price"></span>
+              </li>
+            </template>
+            <li class="list-group-item d-flex justify-content-between bg-dark">
+              <span>Total (MXN)</span>
+              <strong id="total-mxn"></strong>
+            </li>
+          </ul>
+
+        </div>
+        <div class="col-md-8 order-md-1">
+
+          <form id="form-checkout">
+
+            <h4 class="mb-3">Metodo de pago</h4>
+
+            <div class="d-block my-3">
+              <div class="form-group">
+                <select class="form-control bg-dark" style="color: whitesmoke" name="paymentMethod" id="paymentMethod" required>
+                  <option value="" disabled required selected>Selecciona una opcion</option>
+                  <option value="Debit" required>Tarjeta de debito</option>
+                  <option value="Credit" required>Tarjeta de credito</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cc-name">Nombre Titular</label>
+                <input type="text" class="form-control bg-dark" style="color: whitesmoke" id="cc-name" placeholder="" required>
+                <small class="text-muted">Nombre completo que aparece en la tarjeta.</small>
+                <div class="invalid-feedback">
+                  Nombre Titular es requerido
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cc-number">Numero de tarjeta</label>
+                <input type="number" class="form-control bg-dark" style="color: whitesmoke" id="cc-number" placeholder="" required>
+                <div class="invalid-feedback">
+                  Numero de tarjeta es requerido
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">Expiracion</label>
+                <input type="month" class="form-control bg-dark" style="color: whitesmoke" id="cc-expiration" placeholder="" required>
+                <div class="invalid-feedback">
+                  Expiracion es requerida
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cc-cvv">CVV</label>
+                <input type="number" class="form-control bg-dark" style="color: whitesmoke" id="cc-cvv" placeholder="" required>
+                <div class="invalid-feedback">
+                  Codigo de seguridad es requerido
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-danger btn-lg btn-block" type="submit">Confirmar Compra</button>
+          </form>
+        </div>
+      </div>
+
 
     </div>
 
