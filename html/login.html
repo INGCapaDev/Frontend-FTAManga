@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/img/icono.png" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/js/login.js" type="module" defer></script>
+
+  <title>FTAManga</title>
+</head>
+
+<body>
+  <header>
+    <picture>
+      <img src="/img/FTAManga.PNG" alt="Logo FTAManga" />
+    </picture>
+  </header>
+
+  <main>
+    <section class="fondo">
+      <div class="contactos">
+        <div class="formulario">
+          <h3>Ingrese sus datos</h3>
+          <form id="form--autentificacion">
+            <div class="formulario--campo">
+              <label for="user">Usuario: </label>
+              <input type="text" name="user" id="user" placeholder="User" autocomplete="off" required />
+            </div>
+            <div class="formulario--campo">
+              <label for="pass">Password: </label>
+              <input type="password" name="pass" id="pass" placeholder="**********" autocomplete="off" required />
+            </div>
+            <div class="formulario--campo">
+              <label for="account" style="font-size: 1rem;">Aun no tiene una cuenta? </label>
+              <label for="account" style="font-size: 1rem;"><a href="#" style="color: tomato">Registrarse</a></label>
+
+            </div>
+            <button class="formulario--boton" type="submit">Enviar</button>
+            <button class="formulario--boton" id="btnLimpiar">Limpiar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>
+      © 2022, FTAManga. Alvaro Capaceta, Todos los derechos reservados.
+    </span>
+  </footer>
+</body>
+
+</html>

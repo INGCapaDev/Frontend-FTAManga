@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // const baseUrl = '/api/api/';
+  const baseUrl = 'http://localhost:3000/api/';
+
   const products = document.getElementById('contenedor--productos');
   const items = document.getElementById('items');
   const footer = document.getElementById('footer');
@@ -92,6 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
       carrito = {};
       pintarCarrito();
     });
+
+    const btnCheckout = document.getElementById('comprar-carrito');
+    btnCheckout.addEventListener('click', () => {
+      window.location.href = '/html/login.html';
+    });
   };
 
   const pintarCarrito = () => {
@@ -116,5 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('carrito')) {
     carrito = JSON.parse(localStorage.getItem('carrito'));
     pintarCarrito();
+  }
+
+  async function checkout(event) {
+    event.preventDefault();
   }
 });
