@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buscarForm.onsubmit = async (event) => {
     event.preventDefault();
     const table = document.getElementById('tableData');
-    const productTemplate = document.getElementById('userTemplate');
+    const userTemplate = document.getElementById('userTemplate');
     const fragment = document.createDocumentFragment();
     const id = obtenerDatosBuscar();
     const url = `${baseUrl}${id}`;
@@ -243,8 +243,18 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = '/index.html';
         return;
       }
+
+      if (error.response.data.error === 'ERROR_UPDATE_USER') {
+        return window.alert('El usuario o el correo ya existe');
+      }
+
+      if (error.response.data.errors[0]) {
+        alert.hidden = false;
+        alert.innerHTML = error.response.data.errors[0].msg;
+        return;
+      }
       window.alert('Ocurrio un error');
-      console.log(error.response.data);
+      console.log(error);
     }
   };
 
