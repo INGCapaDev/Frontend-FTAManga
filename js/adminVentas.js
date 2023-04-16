@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // const baseUrl = '/api/api/sales/';
-  const baseUrl = 'http://localhost:3000/api/sales/';
+  const baseUrl = '/api/api/sales/';
+  // const baseUrl = 'http://localhost:3000/api/sales/';
   const table = document.getElementById('tableData');
   const saleTemplate = document.getElementById('saleTemplate');
   const detailTemplate = document.getElementById('detailTemplate');

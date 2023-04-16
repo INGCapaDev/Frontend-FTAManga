@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // const baseUrl = '/api/api/';
-  const baseUrl = 'http://localhost:3000/api/';
+  const baseUrl = '/api/api/';
+  // const baseUrl = 'http://localhost:3000/api/';
   if (sessionStorage.getItem('token')) {
     const TOKEN = JSON.parse(sessionStorage.getItem('token'));
     axios.defaults.headers.common['Authorization'] = `Bearer ${TOKEN}`;

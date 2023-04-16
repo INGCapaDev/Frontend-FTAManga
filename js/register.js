@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // const baseUrl = '/api/api/auth/';
-  const baseUrl = 'http://localhost:3000/api/auth/';
+  const baseUrl = '/api/api/auth/';
+  // const baseUrl = 'http://localhost:3000/api/auth/';
 
   function filtro(event) {
     let tecla = event.key;

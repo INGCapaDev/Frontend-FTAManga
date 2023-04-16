@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // const baseUrl = '/api/api/products/';
-  const baseUrl = 'http://localhost:3000/api/products/';
+  const baseUrl = '/api/api/products/';
+  // const baseUrl = 'http://localhost:3000/api/products/';
 
   if (sessionStorage.getItem('token')) {
     const TOKEN = JSON.parse(sessionStorage.getItem('token'));

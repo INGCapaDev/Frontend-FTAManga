@@ -11,8 +11,8 @@ btnLimpiar.addEventListener('click', limpiar);
 
 window.onload = inicializar;
 
-// const baseUrl = '/api/api/auth/';
-const baseUrl = 'http://localhost:3000/api/auth/';
+const baseUrl = '/api/api/auth/';
+// const baseUrl = 'http://localhost:3000/api/auth/';
 
 function inicializar() {
   const formAutentificacion = document.getElementById('form--autentificacion');
