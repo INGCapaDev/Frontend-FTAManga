@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="/js/adminVentas.js" defer></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/img/icono.png" />
+
+  <title>FTAManga</title>
+</head>
+
+<body>
+  <header>
+    <picture class="">
+      <img src="/img/FTAManga.PNG" alt="Logo FTAManga" />
+    </picture>
+  </header>
+  <nav>
+    <a style='padding: 0 30px;' href="/index.html"> Salir </a>
+    <a style='padding: 0 30px;' href="/html/administrador.html">Productos</a>
+    <a style='padding: 0 30px;' href="/html/admin-usuarios.html">Usuarios</a>
+    <a style='padding: 0 30px;  color: whitesmoke;' href="#">Ventas</a>
+  </nav>
+  <main class="fondo">
+    <div class="container-xl">
+      <div class="table-responsive">
+        <div class="table-wrapper">
+          <div class="table-title">
+            <div class="row">
+              <div class="col-sm-4">
+                <h2>Listado de <b>Ventas</b></h2>
+              </div>
+              <div class="col-sm-8">
+                <a href="#searchEmployeeModal" class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE8B6;</i> <span>Buscar Venta</span></a>
+                <a onclick='window.location.reload()' class="btn btn-dark"><i class="material-icons">&#xE7FD;</i> <span>Mostrar Todas</span></a>
+              </div>
+            </div>
+          </div>
+          <table class="table table-dark table-striped table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th></th>
+                <th>Usuario</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <template id="saleTemplate">
+              <tr>
+                <td id="id"></td>
+                <td id="user_name"></td>
+                <td id="user_address"></td>
+                <td id="total"></td>
+                <td id="pay"></td>
+                <td>
+                  <a data-target="#editEmployeeModal" class="edit" style='cursor: pointer;' data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xF224;</i></a>
+                </td>
+              </tr>
+            </template>
+            <tbody id="tableData">
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>
+      © 2022, FTAManga. Alvaro Capaceta, Todos los derechos reservados.
+    </span>
+  </footer>
+
+
+  <!-- Details Modal HTML -->
+  <div id="editEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Detalles Venta</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Modal HTML -->
+
+  <div id="searchEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="searchForm">
+          <div class="modal-header">
+            <h4 class="modal-title">Buscar Venta
+            </h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>ID</label>
+              <input id='form-search-id' type="number" onkeydown='filtro()' class="form-control" min='0' required>
+            </div>
+            <p>Ingresa el ID de la venta</p>
+            <p class="text-danger"><small id="alert-search" hidden></small></p>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+            <input type="submit" class="btn btn-danger" value="Buscar">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  function filtro() {
+    var tecla = event.key;
+    if (['.', 'e', '-', '+'].includes(tecla))
+      event.preventDefault()
+  }
+</script>
+
+</html>
