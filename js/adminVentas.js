@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   // const baseUrl = '/api/api/sales/';
   const baseUrl = 'http://localhost:3000/api/sales/';
+  const table = document.getElementById('tableData');
+  const saleTemplate = document.getElementById('saleTemplate');
+  const detailTemplate = document.getElementById('detailTemplate');
+  const detailsContainer = document.getElementById('detailsContainer');
 
   if (sessionStorage.getItem('token')) {
     const TOKEN = JSON.parse(sessionStorage.getItem('token'));
@@ -12,25 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const userRender = async () => {
-    const table = document.getElementById('tableData');
-    const saleTemplate = document.getElementById('saleTemplate');
     const fragment = document.createDocumentFragment();
+    const detailFragment = document.createDocumentFragment();
 
     try {
       const response = await mostrarTodos();
 
       for (const data of response.data.data) {
         const clone = saleTemplate.content.cloneNode(true);
-        console.log(data);
-        // clone.querySelector('#id').textContent = data.id;
-        // clone.querySelector('#name').textContent = data.name;
-        // clone.querySelector('#user').textContent = data.user;
-        // clone.querySelector('#address').textContent = data.address;
-        // clone.querySelector('#phone').textContent = data.phone;
-        // clone.querySelector('#email').textContent = data.email;
-        // clone.querySelector('#role').textContent = data.role;
+        clone.querySelector('#id').textContent = data.id;
+        clone.querySelector('#user_name').textContent = data.user.name;
+        clone.querySelector('#user_address').textContent = data.user.address;
+        const total = parseFloat(data.total).toFixed(3);
+        clone.querySelector('#total').textContent = `$ ${total}`;
+        clone.querySelector('#pay').textContent = data.pay;
 
+        const details = data.sales_details;
         clone.querySelector('.edit').addEventListener('click', () => {
+          for (const detail of details) {
+            const clone = detailTemplate.content.cloneNode(true);
+            const subtotal = parseFloat(detail.subtotal).toFixed(3);
+            clone.querySelector('#product-price').textContent = subtotal;
+            clone.querySelector('#product-name').textContent =
+              detail.product.name;
+            clone.querySelector('#product-quantity').textContent =
+              detail.quantity;
+            detailFragment.appendChild(clone);
+          }
+          detailsContainer.innerHTML = '';
+          detailsContainer.appendChild(detailFragment);
           $('#editEmployeeModal').modal();
         });
 
@@ -50,8 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const buscarForm = document.getElementById('searchForm');
   buscarForm.onsubmit = async (event) => {
     event.preventDefault();
-    const table = document.getElementById('tableData');
-    const saleTemplate = document.getElementById('saleTemplate');
+    const detailFragment = document.createDocumentFragment();
     const fragment = document.createDocumentFragment();
     const id = obtenerDatosBuscar();
     const url = `${baseUrl}${id}`;
@@ -61,16 +74,28 @@ document.addEventListener('DOMContentLoaded', () => {
       let { data } = await axios.get(url);
       data = data.data;
       const clone = saleTemplate.content.cloneNode(true);
-      console.log(data);
-      // clone.querySelector('#id').textContent = data.id;
-      // clone.querySelector('#name').textContent = data.name;
-      // clone.querySelector('#user').textContent = data.user;
-      // clone.querySelector('#address').textContent = data.address;
-      // clone.querySelector('#phone').textContent = data.phone;
-      // clone.querySelector('#email').textContent = data.email;
-      // clone.querySelector('#role').textContent = data.role;
+      clone.querySelector('#id').textContent = data.id;
+      clone.querySelector('#user_name').textContent = data.user.name;
+      clone.querySelector('#user_address').textContent = data.user.address;
+      const total = parseFloat(data.total).toFixed(3);
+      clone.querySelector('#total').textContent = `$ ${total}`;
+      clone.querySelector('#pay').textContent = data.pay;
+
+      const details = data.sales_details;
 
       clone.querySelector('.edit').addEventListener('click', () => {
+        for (const detail of details) {
+          const clone = detailTemplate.content.cloneNode(true);
+          const subtotal = parseFloat(detail.subtotal).toFixed(3);
+          clone.querySelector('#product-price').textContent = subtotal;
+          clone.querySelector('#product-name').textContent =
+            detail.product.name;
+          clone.querySelector('#product-quantity').textContent =
+            detail.quantity;
+          detailFragment.appendChild(clone);
+        }
+        detailsContainer.innerHTML = '';
+        detailsContainer.appendChild(detailFragment);
         $('#editEmployeeModal').modal();
       });
 
