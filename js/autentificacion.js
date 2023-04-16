@@ -1,11 +1,11 @@
 const btnLimpiar = document.getElementById('btnLimpiar');
-const email = document.getElementById('correo');
+const user = document.getElementById('user');
 const pass = document.getElementById('pass');
 
 const limpiar = (event) => {
   event.preventDefault();
   pass.value = '';
-  correo.value = '';
+  user.value = '';
 };
 
 btnLimpiar.addEventListener('click', limpiar);
