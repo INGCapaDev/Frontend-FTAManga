@@ -2,7 +2,8 @@ const btnLimpiar = document.getElementById('btnLimpiar');
 const email = document.getElementById('correo');
 const pass = document.getElementById('pass');
 
-const limpiar = () => {
+const limpiar = (event) => {
+  event.preventDefault();
   pass.value = '';
   correo.value = '';
 };

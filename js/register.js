@@ -46,6 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
       window.alert('Usuario Registrado Correctamente');
       window.location.href = '/html/checkout.html';
     } catch (error) {
+      if (error.response.data.error === 'ERROR_REGISTER_USER') {
+        return window.alert('El usuario o el correo ya existe');
+      }
+
+      if (error.response.data.errors[0]) {
+        return window.alert(error.response.data.errors[0].msg);
+      }
+
       window.alert('Ocurrio un error');
       console.log(error);
     }
