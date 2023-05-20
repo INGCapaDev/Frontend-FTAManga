@@ -1,1 +1,1 @@
-/api/* http://ec2-35-89-6-66.us-west-2.compute.amazonaws.com/api/products/:splat 200!
+/api/* http://ec2-35-89-6-66.us-west-2.compute.amazonaws.com/:splat 200!
